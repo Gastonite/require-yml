@@ -28,10 +28,7 @@ var read = function(target, iterator) {
   } else if (/\.(json|js)$/.test(target)) {
     try {
       var res = require(target);
-      
-      if (typeof res == 'function')
-        res = res();
-        
+
       return res && iterator(res)
     } catch (e) { return }
   }
